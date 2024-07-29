@@ -64,9 +64,21 @@ def find_streak(list, needle, nstrike):
     Devuelve True si en lista hay n o mas needles seguidos False, para todos los demas.
     """
     # si n >= 0.
+    if nstrike >= 0:
     # inicializo el indice el contador y el indicador de racha.
+        indice = 0
+        count_strike = 0
     # mientras no haya encontrado n seguidos y la lista no se haya acabado.
+        while count_strike < nstrike and indice < len(list):
     # si lo encuentro, activo el indicador de rachas y actualizo el contador.
+            if needle == list[indice]:
+                count_strike += 1
     # si no lo encuentro, desactivo indicador de racha y pongo a cero el contador.
+            else:
+                count_strike = 0
     # avanzo al siguiente elemento.
-    # devolvemos el resultado de comparar el contador con n siempre y cuando estemos en racha     
+            indice += 1
+    # devolvemos el resultado de comparar el contador con n SIEMPRE Y CUANDO estemos en racha.        
+        return count_strike == nstrike     
+    else:
+        return False
