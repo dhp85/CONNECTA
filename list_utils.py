@@ -3,12 +3,7 @@ def find_one(list, needle):
     """
     Devuelve True si encuentra una o mas ocurrencias de needle en list
     """
-    result = False
-    for element in list:
-        if element == needle:
-            result = True
-            break
-    return result        
+    return find_n(list, needle, 1)     
 
 
 
