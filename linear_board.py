@@ -8,6 +8,14 @@ class LinearBoard:
     o otro jugador
     None un espacio vacio
     """
+    @classmethod
+    def fromList(cls, list):
+        if len(list) != BOARD_LENGHT:
+            raise ValueError("Longitud de lista fuera de valor")
+        board = cls()
+        board._column = list
+        return board
+    
 
     def __init__(self):
         """
