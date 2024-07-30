@@ -1,4 +1,5 @@
 from settings import *
+from list_utils import find_streak
 
 class LinearBoard:
     """
@@ -30,12 +31,8 @@ class LinearBoard:
 
     
     def is_victory(self, char):
-        result = False
-        for i in range(VICTORY_STRIKE):
-            if self._column[i] == char:
-              result = True
-            else:
-                return result  
+ 
+        return find_streak(self._column, char, VICTORY_STRIKE) 
     
     def is_tie(self, char1, char2):
         """
