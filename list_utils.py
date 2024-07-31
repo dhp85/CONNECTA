@@ -82,3 +82,48 @@ def find_streak(list, needle, nstrike):
         return count_strike == nstrike     
     else:
         return False
+    
+def first_elements(matriz):
+    """
+    Recibe una lista de listas y devuelve
+    una lista con los primeros elementos de la original
+    """
+
+    return nth_elements(matriz, 0)  
+
+def nth_elements(lol, n):
+
+    """
+    Recibe una lista de listas y devuelve
+    una lista con los enésimos elementos de la original.
+    """
+
+    acumm = []
+
+    for lista in lol:
+        acumm.append(lista[n])
+    return acumm    
+
+
+def transpose(matriz): 
+    """
+    Recibe una matriz y devuelve su transpuesta
+    """       
+    """
+    ac = []
+    
+    for lista in matriz:
+        i = 0
+        while i < len(lista):
+            ac.append(nth_elements(matriz, i))
+            i += 1 
+    return ac
+    """
+    ac = []
+    for i in range(len(matriz[0])):
+        ac.append(nth_elements(matriz, i))
+    return ac    
+
+        
+
+
