@@ -124,6 +124,35 @@ def transpose(matriz):
         ac.append(nth_elements(matriz, i))
     return ac    
 
+def displace(l, distance, filler=None):
+    if distance == 0:
+        return l
+    elif distance > 0:
+        filling = [filler] * distance
+        res = filling + l
+        res = res[:-distance]
+        return res
+    else:
+        distance = distance * -1
+        filling = [filler] * distance
+        res = l + filling
+        res = res[distance:]
+        return res
+        
+def displace_board(matriz, filler=None):
+
+    # Ceamos una matriz vacia.
+    m = []
+    i = 0
+    # por cada columna de la matriz original la desplazamos su indice -1.
+    while i < len(matriz):
+    # añadimos la columna desplazada a m
+        m.append(displace(matriz[i], i - 1, filler))
+        i += 1
+    # devolvemos m
+    return m
+
+
         
 
 
