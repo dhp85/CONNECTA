@@ -1,5 +1,5 @@
 from linear_board import *
-from list_utils import transpose, displace, displace_board
+from list_utils import *
 
 class SquareBoard():
     """
@@ -57,7 +57,14 @@ class SquareBoard():
         return tmp._any_vertical_victory(char)
     
     def _any_rising_victory(self, char):
-        pass
+        # obtenemos las columnas.
+        matriz = self.as_matriz()
+        # las invertimos.
+        inv = reverse_matriz(matriz)
+        # creamos tablero temporal con esa matriz.
+        tmp = SquareBoard.fromList(inv)
+        # devolvemos si tiene una victoria descendente.
+        return tmp._any_sinking_victory(char)
     
     def _any_sinking_victory(self, char):
         # obtenemos las columnas como una matriz.
@@ -72,7 +79,7 @@ class SquareBoard():
         
     
     # dunders
-
+    
     def __repr__(self):
         return f"{self.__class__}:{self._column}"
 

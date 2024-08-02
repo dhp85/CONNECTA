@@ -122,7 +122,8 @@ def transpose(matriz):
     ac = []
     for i in range(len(matriz[0])):
         ac.append(nth_elements(matriz, i))
-    return ac    
+    return ac
+        
 
 def displace(l, distance, filler=None):
     if distance == 0:
@@ -151,8 +152,43 @@ def displace_board(matriz, filler=None):
         i += 1
     # devolvemos m
     return m
+    
+    """
+    d = []
+    # por cada calumna de la matriz original la desplazamos su índice -1
+    for i in range(len(m)):
+        # añadimos la columna desplazada a m
+        d.append(displace(m[i], i - 1, filler))
+    """
+
+def reverse_list(l):
+    """
+    Funcion que recibe una lista y la invierte
+    """
+    rev = list(reversed(l))
+    return rev
 
 
-        
+def reverse_matriz(lol):
+    """
+    Funcion que invierte lista de listas.
+    """
+    """
+    mv= []
+    for l in lol:
+        lv = []
+        for el in reversed(l):
+            lv.append(el)
+        mv.append(lv)    
+    return mv
+    """
+    """
+    mv = []
+    for l in lol:
+        mv.append(reverse_list(l))
+    return mv 
+    """ 
 
+    # refactoriza con map.
+    return list(map(reverse_list, lol))   
 

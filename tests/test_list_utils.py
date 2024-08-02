@@ -1,5 +1,5 @@
 import pytest
-from list_utils import find_one, find_n,find_streak, first_elements, transpose, displace
+from list_utils import *
 
 def test_find_one():
     needle = 1
@@ -86,4 +86,13 @@ def test_negative_distance_displace():
     assert displace(l2, -3, '-') == ['-']
     assert displace(l3, -1, '#') == [['x', 'o', 'c'], '#']
     assert displace(l4, -3, 0) == [0, 0, 0]
+
+def test_reverse_list():
+    assert reverse_list([]) == []
+    assert reverse_list([1, 2, 3, 4, 5, 6]) == [6, 5, 4, 3, 2, 1]
+
+
+def test_reverse_matriz():
+    assert reverse_matriz([]) == []
+    assert reverse_matriz([[0, 1, 2, 3], [0, 1, 2, 3]]) == [[3, 2, 1, 0], [3, 2, 1, 0]]    
 
