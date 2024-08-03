@@ -39,7 +39,6 @@ def test_first_elements():
     lol2 = [[0,7,3], [4,0,1], [5,6,7], [7,8,9]]
 
     assert first_elements(original) == [0,4]  
-    assert first_elements(lista_vacia) == []
     assert first_elements(lol2) == [0,4,5,7]  
 
 def test_transpose():

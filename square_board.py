@@ -18,6 +18,12 @@ class SquareBoard():
     def __init__(self):
         self._column = [LinearBoard() for i in range(BOARD_LENGHT)]
 
+    def __repr__(self):
+        return f"{self.__class__}: {self._column}"
+
+    def __len__(self):
+        return len(self._column)    
+
     def is_full(self):
         """
         True si todos los LinearBoards estan llenos
@@ -36,6 +42,9 @@ class SquareBoard():
         for lb in self._column:
             matriz.append(lb._column)
         return matriz
+    
+    def add(self, char, column):
+        self._column[column].add(char)
 
     # Detectar victorias
     def is_victory(self, char):
@@ -78,8 +87,6 @@ class SquareBoard():
 
         
     
-    # dunders
+     
     
-    def __repr__(self):
-        return f"{self.__class__}:{self._column}"
-
+  
